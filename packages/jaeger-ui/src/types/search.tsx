@@ -24,6 +24,7 @@ export type SearchQuery = {
   service: string;
   start: number | string;
   tags: string | TNil;
+  clone: boolean;
 };
 
 /**

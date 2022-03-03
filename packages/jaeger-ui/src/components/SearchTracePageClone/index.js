@@ -275,7 +275,6 @@ function mapDispatchToProps(dispatch) {
     dispatch
   );
   const { loadJsonTraces } = bindActionCreators(fileReaderActions, dispatch);
-
   const { cohortAddTrace, cohortRemoveTrace } = bindActionCreators(traceDiffActions, dispatch);
   return {
     cohortAddTrace,

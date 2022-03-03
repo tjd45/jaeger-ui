@@ -44,6 +44,9 @@ export type Config = {
   deepDependencies?: {
     menuEnabled?: boolean;
   };
+  experimental?: {
+    menuEnabled?: boolean;
+  };
   dependencies?: { dagMaxServicesLen?: number; menuEnabled?: boolean };
   menu: (ConfigMenuGroup | ConfigMenuItem)[];
   pathAgnosticDecorations?: TPathAgnosticDecorationSchema[];

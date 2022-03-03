@@ -220,7 +220,6 @@ export function submitForm(fields, searchTraces) {
   } = fields;
   // Note: traceID is ignored when the form is submitted
   store.set('lastSearch', { service, operation });
-
   let start;
   let end;
   if (lookback !== 'custom') {
@@ -250,6 +249,7 @@ export function submitForm(fields, searchTraces) {
     tags: convTagsLogfmt(tags) || undefined,
     minDuration: minDuration || null,
     maxDuration: maxDuration || null,
+    clone: true
   });
 }
 
@@ -626,6 +626,7 @@ export function mapStateToProps(state) {
 }
 
 export function mapDispatchToProps(dispatch) {
+
   const { searchTraces } = bindActionCreators(jaegerApiActions, dispatch);
   return {
     onSubmit: fields => submitForm(fields, searchTraces),

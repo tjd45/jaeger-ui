@@ -27,6 +27,9 @@ export default deepFreeze(
         dagMaxNumServices: FALLBACK_DAG_MAX_NUM_SERVICES,
         menuEnabled: true,
       },
+      experimental: {
+        menuEnabled: true,
+      },
       linkPatterns: [],
       qualityMetrics: {
         menuEnabled: false,

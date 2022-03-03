@@ -28,6 +28,12 @@ import QualityMetrics from '../QualityMetrics';
 import { ROUTE_PATH as qualityMetricsPath } from '../QualityMetrics/url';
 import SearchTracePage from '../SearchTracePage';
 import { ROUTE_PATH as searchPath } from '../SearchTracePage/url';
+import TomSearchPage from '../SearchTomPage';
+import { ROUTE_PATH as tomSearchPath } from '../SearchTomPage/url';
+import SearchTracePageClone from '../SearchTracePageClone';
+import { ROUTE_PATH as searchPathClone } from '../SearchTracePageClone/url';
+import TomPage from '../TomPage';
+import { ROUTE_PATH as tomPath } from '../TomPage/url';
 import TraceDiff from '../TraceDiff';
 import { ROUTE_PATH as traceDiffPath } from '../TraceDiff/url';
 import TracePage from '../TracePage';
@@ -60,6 +66,9 @@ export default class JaegerUIApp extends Component {
           <Page>
             <Switch>
               <Route path={searchPath} component={SearchTracePage} />
+              <Route path={tomSearchPath} component={TomSearchPage} />
+              <Route path={searchPathClone} component={SearchTracePageClone} />
+              <Route path={tomPath} component={TomPage} />
               <Route path={traceDiffPath} component={TraceDiff} />
               <Route path={tracePath} component={TracePage} />
               <Route path={dependenciesPath} component={DependencyGraph} />

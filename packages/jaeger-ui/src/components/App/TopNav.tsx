@@ -23,6 +23,8 @@ import * as dependencyGraph from '../DependencyGraph/url';
 import * as deepDependencies from '../DeepDependencies/url';
 import * as qualityMetrics from '../QualityMetrics/url';
 import * as searchUrl from '../SearchTracePage/url';
+import * as tomSearch from '../SearchTomPage/url';
+import * as searchCloneUrl from '../SearchTracePageClone/url';
 import * as diffUrl from '../TraceDiff/url';
 import * as monitorATMUrl from '../Monitor/url';
 import { ReduxState } from '../../types';
@@ -52,6 +54,22 @@ if (getConfigValue('dependencies.menuEnabled')) {
     text: 'System Architecture',
   });
 }
+
+//RETURN HERE AND START TO IMPLEMENT
+if (getConfigValue('experimental.menuEnabled')) {
+  NAV_LINKS.push({
+    to: tomSearch.getUrl(),
+    matches: tomSearch.matches,
+    text: "Tom's View",
+  });
+  NAV_LINKS.push({
+    to: searchCloneUrl.getUrl(),
+    matches: searchCloneUrl.matches,
+    text: 'Search Clone',
+  });
+}
+
+//RETURN HERE AND START TO IMPLEMENT
 
 if (getConfigValue('deepDependencies.menuEnabled')) {
   NAV_LINKS.push({
@@ -111,7 +129,6 @@ export function TopNavImpl(props: Props) {
   const { config, router } = props;
   const { pathname } = router.location;
   const menuItems = Array.isArray(config.menu) ? config.menu : [];
-
   return (
     <div>
       <Menu theme="dark" mode="horizontal" selectable={false} className="ub-right" selectedKeys={[pathname]}>

@@ -18,6 +18,7 @@ import { replace } from 'react-router-redux';
 
 import { searchTraces, fetchServiceOperations } from '../actions/jaeger-api';
 import { getUrl as getSearchUrl } from '../components/SearchTracePage/url';
+import { getUrl as getClonedSearchUrl } from '../components/SearchTracePageClone/url';
 
 export { default as trackMiddleware } from './track';
 
@@ -39,8 +40,10 @@ export const loadOperationsForServiceMiddleware = store => next => action => {
 
 export const historyUpdateMiddleware = store => next => action => {
   if (action.type === String(searchTraces)) {
-    const url = getSearchUrl(action.meta.query);
+
+    const url = action.meta.query.clone ? getClonedSearchUrl(action.meta.query) : getSearchUrl(action.meta.query);
     store.dispatch(replace(url));
+
   }
   return next(action);
 };
